@@ -17,8 +17,8 @@
   background-color: #282c34;
   display: flex;
   flex-direction: column;
-  align-items: start;
-  justify-content: start;
+  align-items: flex-start;
+  justify-content: flex-start;
   font-size: calc(10px + 2vmin);
   color: white;
   padding-left:calc(10px + 2vmin);
@@ -35,7 +35,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: start;
+  justify-content: flex-start;
   gap:10px;
 }
 

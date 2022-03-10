@@ -17,6 +17,9 @@ export default function Query() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        if(selectedStartDate._d>selectedEndDate._d){
+          alert('Start Time cannot be after EndTime');
+        }
         const queryData = {
             startTimeStamp : selectedStartDate._d,
             endTimeStamp: selectedEndDate._d,
