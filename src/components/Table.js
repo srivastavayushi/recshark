@@ -11,7 +11,7 @@ export const BasicTable = () => {
   const columns = useMemo(() => COLUMNS, [])
   const data = useMemo(() => MOCK_DATA, [])
 
-  const defaultColumn = React.useMemo(
+  const defaultColumn = useMemo(
     () => ({
       Filter: ColumnFilter
     }),

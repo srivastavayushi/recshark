@@ -1,14 +1,20 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import "react-datetime/css/react-datetime.css";
 import Datetime from "react-datetime";
 import Select from 'react-select';
+// import { w3cwebsocket as W3CWebSocket } from "websocket";
+
+// const client = new W3CWebSocket('http://localhost:9000/');
 
 const options = [
     { value: 'IMSI', label: 'IMSI' },
     { value: 'TAI', label: 'TAI' },
   ];
 
-export default function Query() {
+export default function Query({func}) {
+
+    // const webSocket = new WebSocket('wss://localhost:3000/');
+
 
     const [selectedStartDate, setSelectedStartDate] = useState(null);
     const [selectedEndDate,setSelectedEndDate] = useState(null);
@@ -17,16 +23,19 @@ export default function Query() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if(selectedStartDate._d>selectedEndDate._d){
-          alert('Start Time cannot be after EndTime');
-        }
         const queryData = {
             startTimeStamp : selectedStartDate._d,
             endTimeStamp: selectedEndDate._d,
             keyType: selectedDropdownOption,
-            number:selectedTextOption.target.value,
+        };
+
+        if(selectedDropdownOption != null){
+          queryData.number =  selectedTextOption.target.value;
+        }else{
+          queryData.number = null;
         }
-        console.log(queryData);
+        func(queryData);
+        // client.send()
     }
     
 

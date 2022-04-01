@@ -48,6 +48,12 @@
   width: 150px;
 }
 
+.app-header-3{
+  margin-left: 25px;
+  font-size: calc(4px + 1.5vmin);
+  color:#78797a;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
